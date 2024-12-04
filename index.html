@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- PIN Entry Page -->
+        <div id="pin-page">
+            <h1>Enter PIN to Start Quiz</h1>
+            <input type="text" id="pin-input" placeholder="Enter PIN" maxlength="6">
+            <button onclick="startQuiz()">Start Quiz</button>
+        </div>
+
+        <!-- Quiz Page -->
+        <div id="quiz-page" class="hidden">
+            <h1>Quiz</h1>
+            <div id="timer">Time Left: <span id="time">60</span> seconds</div>
+            <div id="quiz">
+                <div id="question">Question will appear here</div>
+                <div class="options">
+                    <button onclick="checkAnswer(this)" data-index="0">Option 1</button>
+                    <button onclick="checkAnswer(this)" data-index="1">Option 2</button>
+                    <button onclick="checkAnswer(this)" data-index="2">Option 3</button>
+                    <button onclick="checkAnswer(this)" data-index="3">Option 4</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Page -->
+        <div id="result-page" class="hidden">
+            <h1>Quiz Results</h1>
+            <p>PIN: <span id="result-pin"></span></p>
+            <p>Score: <span id="result-score"></span></p>
+            <button onclick="downloadResults()">Download Results (PDF)</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
